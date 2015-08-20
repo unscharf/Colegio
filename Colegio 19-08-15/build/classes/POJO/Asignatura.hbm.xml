@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-ago-2015 14:32:53 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJO.Asignatura" table="asignatura" catalog="bdcolegio">
+        <id name="idAsignatura" type="java.lang.Integer">
+            <column name="Id_asignatura" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreAsignatura" type="string">
+            <column name="Nombre_asignatura" length="50" />
+        </property>
+        <set name="profesorAsignaturas" table="profesor_asignatura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Fk_asignatura" />
+            </key>
+            <one-to-many class="POJO.ProfesorAsignatura" />
+        </set>
+    </class>
+</hibernate-mapping>

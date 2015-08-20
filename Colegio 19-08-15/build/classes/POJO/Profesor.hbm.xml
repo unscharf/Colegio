@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-ago-2015 14:32:53 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJO.Profesor" table="profesor" catalog="bdcolegio">
+        <id name="idProfesor" type="java.lang.Integer">
+            <column name="Id_profesor" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="50" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="Apellido" length="50" not-null="true" />
+        </property>
+        <property name="noCedula" type="string">
+            <column name="No_cedula" length="20" not-null="true" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="Sexo" length="12" not-null="true" />
+        </property>
+        <property name="image" type="binary">
+            <column name="Image" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="150" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="8" />
+        </property>
+        <property name="usuario" type="string">
+            <column name="Usuario" length="25" />
+        </property>
+        <property name="pwd" type="string">
+            <column name="Pwd" length="25" />
+        </property>
+        <property name="estado" type="int">
+            <column name="Estado" not-null="true" />
+        </property>
+        <set name="tituloses" table="titulos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Fk_profesor" />
+            </key>
+            <one-to-many class="POJO.Titulos" />
+        </set>
+        <set name="profesorAsignaturas" table="profesor_asignatura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Fk_profesor" />
+            </key>
+            <one-to-many class="POJO.ProfesorAsignatura" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-ago-2015 14:32:53 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJO.Programacion" table="programacion" catalog="bdcolegio">
+        <id name="idProgramacion" type="java.lang.Integer">
+            <column name="Id_programacion" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="anioAcademico" class="POJO.AnioAcademico" fetch="select">
+            <column name="Fk_anio_academico" />
+        </many-to-one>
+        <many-to-one name="seccion" class="POJO.Seccion" fetch="select">
+            <column name="Fk_seccion" />
+        </many-to-one>
+        <property name="semestre" type="int">
+            <column name="Semestre" not-null="true" />
+        </property>
+        <property name="fechaIni" type="timestamp">
+            <column name="Fecha_ini" length="19" />
+        </property>
+        <property name="estado" type="int">
+            <column name="Estado" not-null="true" />
+        </property>
+        <set name="matriculas" table="matricula" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Fk_programacion" />
+            </key>
+            <one-to-many class="POJO.Matricula" />
+        </set>
+        <set name="detalleProgramacions" table="detalle_programacion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Fk_programacion" />
+            </key>
+            <one-to-many class="POJO.DetalleProgramacion" />
+        </set>
+    </class>
+</hibernate-mapping>

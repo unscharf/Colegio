@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-ago-2015 14:32:53 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJO.CostoMensualidad" table="costo_mensualidad" catalog="bdcolegio">
+        <id name="idCostomensualidad" type="java.lang.Integer">
+            <column name="Id_costomensualidad" />
+            <generator class="identity" />
+        </id>
+        <property name="costo" type="double">
+            <column name="Costo" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="nivel" type="string">
+            <column name="Nivel" length="12" not-null="true" />
+        </property>
+        <set name="pagoMensualidads" table="pago_mensualidad" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Fk_costo_mensualidad" />
+            </key>
+            <one-to-many class="POJO.PagoMensualidad" />
+        </set>
+    </class>
+</hibernate-mapping>

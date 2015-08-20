@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-ago-2015 14:32:53 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJO.PagoMensualidad" table="pago_mensualidad" catalog="bdcolegio">
+        <id name="idPagomensualidad" type="java.lang.Integer">
+            <column name="Id_pagomensualidad" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="costoMensualidad" class="POJO.CostoMensualidad" fetch="select">
+            <column name="Fk_costo_mensualidad" />
+        </many-to-one>
+        <many-to-one name="estudiante" class="POJO.Estudiante" fetch="select">
+            <column name="Fk_estudiante" />
+        </many-to-one>
+        <property name="fechaPago" type="date">
+            <column name="Fecha_pago" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

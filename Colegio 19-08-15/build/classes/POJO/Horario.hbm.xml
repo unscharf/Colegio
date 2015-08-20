@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-ago-2015 14:32:53 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJO.Horario" table="horario" catalog="bdcolegio">
+        <id name="idHorario" type="java.lang.Integer">
+            <column name="Id_horario" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="detalleProgramacion" class="POJO.DetalleProgramacion" fetch="select">
+            <column name="Fk_detalle_programacion" />
+        </many-to-one>
+        <property name="dia" type="string">
+            <column name="Dia" length="20" />
+        </property>
+        <property name="horaEntrada" type="string">
+            <column name="Hora_entrada" length="20" />
+        </property>
+        <property name="horaSalida" type="string">
+            <column name="Hora_salida" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

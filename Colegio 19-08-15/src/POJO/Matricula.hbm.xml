@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-ago-2015 14:32:53 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJO.Matricula" table="matricula" catalog="bdcolegio">
+        <id name="idMatricula" type="java.lang.Integer">
+            <column name="Id_matricula" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="costoMatricula" class="POJO.CostoMatricula" fetch="select">
+            <column name="Fk_costo_matricula" />
+        </many-to-one>
+        <many-to-one name="programacion" class="POJO.Programacion" fetch="select">
+            <column name="Fk_programacion" />
+        </many-to-one>
+        <many-to-one name="estudiante" class="POJO.Estudiante" fetch="select">
+            <column name="Fk_estudiante" />
+        </many-to-one>
+        <property name="fechaMatricula" type="timestamp">
+            <column name="Fecha_matricula" length="19" />
+        </property>
+        <set name="registros" table="registro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Fk_matricula" />
+            </key>
+            <one-to-many class="POJO.Registro" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-ago-2015 14:32:53 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJO.Director" table="director" catalog="bdcolegio">
+        <id name="idDirector" type="java.lang.Integer">
+            <column name="Id_director" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="50" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="Apellido" length="50" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="150" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="8" not-null="true" />
+        </property>
+        <property name="estado" type="int">
+            <column name="Estado" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

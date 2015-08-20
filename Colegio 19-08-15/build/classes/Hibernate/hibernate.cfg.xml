@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bdcolegio?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">darkthrone</property>
+    <mapping resource="POJO/Seccion.hbm.xml"/>
+    <mapping resource="POJO/CostoMatricula.hbm.xml"/>
+    <mapping resource="POJO/Registro.hbm.xml"/>
+    <mapping resource="POJO/Estudiante.hbm.xml"/>
+    <mapping resource="POJO/CostoMensualidad.hbm.xml"/>
+    <mapping resource="POJO/PagoMensualidad.hbm.xml"/>
+    <mapping resource="POJO/Horario.hbm.xml"/>
+    <mapping resource="POJO/Programacion.hbm.xml"/>
+    <mapping resource="POJO/Profesor.hbm.xml"/>
+    <mapping resource="POJO/DetallesRegistro.hbm.xml"/>
+    <mapping resource="POJO/Matricula.hbm.xml"/>
+    <mapping resource="POJO/ProfesorAsignatura.hbm.xml"/>
+    <mapping resource="POJO/Titulos.hbm.xml"/>
+    <mapping resource="POJO/DetalleProgramacion.hbm.xml"/>
+    <mapping resource="POJO/Director.hbm.xml"/>
+    <mapping resource="POJO/Asignatura.hbm.xml"/>
+    <mapping resource="POJO/AnioAcademico.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
